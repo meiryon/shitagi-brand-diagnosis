@@ -25,14 +25,9 @@ function filterBrands() {
 function renderResult(list) {
   const result = document.getElementById("result");
 
-  result.innerHTML = "<h2>おすすめブランド</h2>";
-
-  list.forEach((b, i) => {
-    result.innerHTML += `
-      <div>
-        <h3>${i + 1}位：${b.name}</h3>
-        <p>${b.description}</p>
-      </div>
-    `;
-  });
-}
+result.innerHTML += `
+  <div class="card">
+    <h3>${i + 1}位：${b.name}</h3>
+    <p>${b.description}</p>
+    <small>スコア：${b.score}</small>
+  </div>
