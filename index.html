@@ -2,21 +2,32 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>ブラ診断</title>
+  <title>下着ブランド診断</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>下着ブランド診断</h1>
 
-<!-- チェック（例） -->
+<!-- 好み -->
+<h3>好み</h3>
 <label><input type="checkbox" value="かわいい系"> かわいい系</label>
+<label><input type="checkbox" value="ナチュラル"> ナチュラル</label>
+<label><input type="checkbox" value="デザイン重視"> デザイン重視</label>
+
+<!-- 機能 -->
+<h3>機能</h3>
 <label><input type="checkbox" value="ホールド力重視"> ホールド力重視</label>
+<label><input type="checkbox" value="補整重視"> 補整重視</label>
+<label><input type="checkbox" value="楽ちん"> 楽ちん</label>
+
+<!-- 体型 -->
+<h3>体型</h3>
 <label><input type="checkbox" value="グラマー対応"> グラマー対応</label>
 
 <br><br>
 
-<!-- 価格スライダー -->
+<!-- 価格 -->
 <h3>価格帯</h3>
 <input type="range" id="priceRange" min="1" max="3" value="2">
 <p>現在：<span id="priceLabel">中価格</span></p>
@@ -25,7 +36,6 @@
 
 <button onclick="filterBrands()">診断する</button>
 
-<!-- 結果ここに出る -->
 <div id="result"></div>
 
 <script src="data.js"></script>
