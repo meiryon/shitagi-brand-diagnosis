@@ -21,3 +21,25 @@ button {
   color: white;
   border-radius: 8px;
 }
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #ff6fae;
+  color: white;
+  cursor: pointer;
+}
