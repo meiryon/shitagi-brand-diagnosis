@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>下着ブランド診断</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <div class="container">
+
+    <h1>あなたに合う下着ブランド診断</h1>
+
+    <p>当てはまるものを選んでね</p>
+
+    <div id="filters">
+
+      <label><input type="checkbox" value="ホールド力重視"> ホールド力重視</label><br>
+      <label><input type="checkbox" value="かわいい系"> かわいい系</label><br>
+      <label><input type="checkbox" value="コスパ重視"> コスパ重視</label><br>
+      <label><input type="checkbox" value="グラマー対応"> グラマー対応</label><br>
+      <label><input type="checkbox" value="ナチュラル"> ナチュラル</label><br>
+
+    </div>
+
+    <button onclick="filterBrands()">結果を見る</button>
+
+    <hr>
+
+    <div id="result"></div>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
