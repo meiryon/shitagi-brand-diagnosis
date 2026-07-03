@@ -53,3 +53,4 @@ priceRange.addEventListener("input", () => {
 
   priceLabel.textContent = map[val];
 });
+});
