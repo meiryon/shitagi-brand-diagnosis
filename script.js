@@ -1,3 +1,4 @@
+console.log("JS読み込みOK");
 function filterBrands() {
   const checked = Array.from(
     document.querySelectorAll('input[type="checkbox"]:checked')
