@@ -8,14 +8,13 @@ function filterBrands() {
   const scored = brands.map(brand => {
     let score = 0;
 
-    // チェック一致
     checked.forEach(tag => {
       if (brand.tags.includes(tag)) {
         score++;
       }
     });
 
-    // 価格一致（重め）
+    // 価格
     if (
       (price === 1 && brand.tags.includes("プチプラ")) ||
       (price === 2 && brand.tags.includes("中価格")) ||
@@ -32,11 +31,15 @@ function filterBrands() {
   renderResult(scored.slice(0, 3));
 }
 
-// ⭐ STEP1：カード表示ここ
 function renderResult(list) {
   const result = document.getElementById("result");
 
-  result.innerHTML = "<h2>おすすめ</h2>";
+  if (list.length === 0) {
+    result.innerHTML = "<p>該当なしなのでおすすめを表示します</p>";
+    return;
+  }
+
+  result.innerHTML = "<h2>おすすめブランド</h2>";
 
   list.forEach((b, i) => {
     result.innerHTML += `
