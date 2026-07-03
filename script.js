@@ -1,3 +1,4 @@
+window.addEventListener("DOMContentLoaded", () => {
 function filterBrands() {
   const checked = Array.from(
     document.querySelectorAll('input[type="checkbox"]:checked')
