@@ -2,44 +2,34 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>下着ブランド診断</title>
+  <title>ブラ診断</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container">
+<h1>下着ブランド診断</h1>
 
-    <h1>あなたに合う下着ブランド診断</h1>
+<!-- チェック（例） -->
+<label><input type="checkbox" value="かわいい系"> かわいい系</label>
+<label><input type="checkbox" value="ホールド力重視"> ホールド力重視</label>
+<label><input type="checkbox" value="グラマー対応"> グラマー対応</label>
 
-    <p>当てはまるものを選んでね</p>
+<br><br>
 
-    <div id="filters">
+<!-- 価格スライダー -->
+<h3>価格帯</h3>
+<input type="range" id="priceRange" min="1" max="3" value="2">
+<p>現在：<span id="priceLabel">中価格</span></p>
 
-      <label><input type="checkbox" value="ホールド力重視"> ホールド力重視</label><br>
-      <label><input type="checkbox" value="かわいい系"> かわいい系</label><br>
-      <label><input type="checkbox" value="コスパ重視"> コスパ重視</label><br>
-      <label><input type="checkbox" value="グラマー対応"> グラマー対応</label><br>
-      <label><input type="checkbox" value="ナチュラル"> ナチュラル</label><br>
+<br>
 
-    </div>
+<button onclick="filterBrands()">診断する</button>
 
-    <button onclick="filterBrands()">結果を見る</button>
+<!-- 結果ここに出る -->
+<div id="result"></div>
 
-    <hr>
-
-    <div id="result"></div>
-
-  </div>
-
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
-
-<h3>価格帯</h3>
-<input type="range" id="priceRange" min="1" max="3" value="2">
-<div>
-  <span>プチプラ</span> ←→ <span>高価格</span>
-</div>
-<p id="priceLabel">中価格</p>
