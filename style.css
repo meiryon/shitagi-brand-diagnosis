@@ -1,0 +1,23 @@
+body {
+  font-family: sans-serif;
+  background: #fff7fa;
+  padding: 20px;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #ff6fae;
+  color: white;
+  border-radius: 8px;
+}
