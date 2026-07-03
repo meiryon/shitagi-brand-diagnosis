@@ -29,7 +29,7 @@ function renderResult(list) {
 
   list.forEach((b, i) => {
     result.innerHTML += `
-      <div style="margin-bottom:10px;">
+      <div>
         <h3>${i + 1}位：${b.name}</h3>
         <p>${b.description}</p>
         <small>一致度：${b.score}</small>
