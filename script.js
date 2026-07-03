@@ -3,24 +3,30 @@ function filterBrands() {
     document.querySelectorAll('input[type="checkbox"]:checked')
   ).map(cb => cb.value);
 
-  const price = Number(document.getElementById("priceRange").value);
+  const sizeInput = document.getElementById("sizeInput").value.toUpperCase();
+
+  // サイズ分解（C75 → C / 75）
+  const cup = sizeInput.slice(0, 1);
+  const under = Number(sizeInput.slice(1));
 
   const scored = brands.map(brand => {
     let score = 0;
 
+    // 好み・機能チェック
     checked.forEach(tag => {
-      if (brand.tags.includes(tag)) {
-        score++;
+      if (brand.styles.includes(tag)) {
+        score += 1;
       }
     });
 
-    // 価格
-    if (
-      (price === 1 && brand.tags.includes("プチプラ")) ||
-      (price === 2 && brand.tags.includes("中価格")) ||
-      (price === 3 && brand.tags.includes("高価格"))
-    ) {
+    // カップ一致
+    if (brand.cups.includes(cup)) {
       score += 2;
+    }
+
+    // アンダー範囲一致
+    if (under >= brand.underMin && under <= brand.underMax) {
+      score += 3;
     }
 
     return { ...brand, score };
@@ -34,12 +40,7 @@ function filterBrands() {
 function renderResult(list) {
   const result = document.getElementById("result");
 
-  if (list.length === 0) {
-    result.innerHTML = "<p>該当なしなのでおすすめを表示します</p>";
-    return;
-  }
-
-  result.innerHTML = "<h2>おすすめブランド</h2>";
+  result.innerHTML = "<h2>おすすめ</h2>";
 
   list.forEach((b, i) => {
     result.innerHTML += `
@@ -51,16 +52,3 @@ function renderResult(list) {
     `;
   });
 }
-
-// スライダー表示
-const priceRange = document.getElementById("priceRange");
-const priceLabel = document.getElementById("priceLabel");
-
-priceRange.addEventListener("input", () => {
-  const map = {
-    1: "プチプラ",
-    2: "中価格",
-    3: "高価格"
-  };
-  priceLabel.textContent = map[priceRange.value];
-});
