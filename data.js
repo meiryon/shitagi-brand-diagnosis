@@ -1,17 +1,26 @@
 const brands = [
   {
     name: "HEAVEN Japan",
-    description: "補整力と快適さを両立したグラマー向けブランド",
-    tags: ["ホールド力重視", "グラマー対応", "補整重視", "中価格"]
+    description: "しっかり支える補整系ブランド",
+    styles: ["セクシー", "サポート"],
+    cups: ["C", "D", "E", "F", "G", "H", "I"],
+    underMin: 70,
+    underMax: 85
   },
   {
     name: "Risa Magli",
-    description: "かわいくて華やかなデザインが人気",
-    tags: ["かわいい系", "デザイン重視", "高価格"]
+    description: "かわいくて華やか",
+    styles: ["かわいい"],
+    cups: ["A", "B", "C", "D", "E"],
+    underMin: 65,
+    underMax: 75
   },
   {
     name: "tu-hacci",
-    description: "コスパが良く普段使いしやすい",
-    tags: ["コスパ重視", "ナチュラル", "楽ちん", "プチプラ"]
+    description: "楽でコスパ重視",
+    styles: ["シンプル", "楽"],
+    cups: ["A", "B", "C", "D", "E", "F"],
+    underMin: 70,
+    underMax: 80
   }
 ];
