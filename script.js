@@ -3,9 +3,6 @@ function filterBrands() {
     document.querySelectorAll('input[type="checkbox"]:checked')
   ).map(cb => cb.value);
 
-  const priceRange = document.getElementById("priceRange");
-  const price = priceRange ? Number(priceRange.value) : 2;
-
   const scored = brands.map(brand => {
     let score = 0;
 
@@ -15,20 +12,14 @@ function filterBrands() {
       }
     });
 
-    if (
-      (price === 1 && brand.tags.includes("プチプラ")) ||
-      (price === 2 && brand.tags.includes("中価格")) ||
-      (price === 3 && brand.tags.includes("高価格"))
-    ) {
-      score += 2;
-    }
-
     return { ...brand, score };
   });
 
   scored.sort((a, b) => b.score - a.score);
 
-  renderResult(scored.slice(0, 3));
+  const top3 = scored.slice(0, 3);
+
+  renderResult(top3);
 }
 
 function renderResult(list) {
@@ -38,10 +29,9 @@ function renderResult(list) {
 
   list.forEach((b, i) => {
     result.innerHTML += `
-      <div style="margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;">
+      <div>
         <h3>${i + 1}位：${b.name}</h3>
         <p>${b.description}</p>
-        <small>スコア：${b.score}</small>
       </div>
     `;
   });
