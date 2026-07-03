@@ -37,3 +37,18 @@ function renderResult(list) {
     `;
   });
 }
+
+const priceLabel = document.getElementById("priceLabel");
+const priceRange = document.getElementById("priceRange");
+
+priceRange.addEventListener("input", () => {
+  const val = Number(priceRange.value);
+
+  const map = {
+    1: "プチプラ",
+    2: "中価格",
+    3: "高価格"
+  };
+
+  priceLabel.textContent = map[val];
+});
