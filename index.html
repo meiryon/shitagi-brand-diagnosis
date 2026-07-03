@@ -2,31 +2,26 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>サイズ対応ブラ診断</title>
+  <title>ブラ診断</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>ブラ診断</h1>
 
-<!-- 好み -->
 <h3>好み</h3>
 <label><input type="checkbox" value="かわいい">かわいい</label>
 <label><input type="checkbox" value="シンプル">シンプル</label>
 <label><input type="checkbox" value="セクシー">セクシー</label>
 
-<!-- 機能 -->
 <h3>機能</h3>
 <label><input type="checkbox" value="サポート">サポート</label>
 <label><input type="checkbox" value="楽">楽</label>
 
-<!-- サイズ -->
-<h3>サイズ（例：C75 / I80）</h3>
-
-<input type="text" id="sizeInput" placeholder="例：C75">
+<h3>サイズ（例：C75）</h3>
+<input id="sizeInput" placeholder="C75">
 
 <br><br>
-
 <button onclick="filterBrands()">診断する</button>
 
 <div id="result"></div>
