@@ -1,8 +1,10 @@
-window.addEventListener("DOMContentLoaded", () => {
 function filterBrands() {
   const checked = Array.from(
     document.querySelectorAll('input[type="checkbox"]:checked')
   ).map(cb => cb.value);
+
+  const priceRange = document.getElementById("priceRange");
+  const price = priceRange ? Number(priceRange.value) : 2;
 
   const scored = brands.map(brand => {
     let score = 0;
@@ -13,14 +15,20 @@ function filterBrands() {
       }
     });
 
+    if (
+      (price === 1 && brand.tags.includes("プチプラ")) ||
+      (price === 2 && brand.tags.includes("中価格")) ||
+      (price === 3 && brand.tags.includes("高価格"))
+    ) {
+      score += 2;
+    }
+
     return { ...brand, score };
   });
 
   scored.sort((a, b) => b.score - a.score);
 
-  const top3 = scored.slice(0, 3);
-
-  renderResult(top3);
+  renderResult(scored.slice(0, 3));
 }
 
 function renderResult(list) {
@@ -30,27 +38,11 @@ function renderResult(list) {
 
   list.forEach((b, i) => {
     result.innerHTML += `
-      <div>
+      <div style="margin:10px 0;padding:10px;border:1px solid #ddd;border-radius:8px;">
         <h3>${i + 1}位：${b.name}</h3>
         <p>${b.description}</p>
-        <small>一致度：${b.score}</small>
+        <small>スコア：${b.score}</small>
       </div>
     `;
   });
 }
-
-const priceLabel = document.getElementById("priceLabel");
-const priceRange = document.getElementById("priceRange");
-
-priceRange.addEventListener("input", () => {
-  const val = Number(priceRange.value);
-
-  const map = {
-    1: "プチプラ",
-    2: "中価格",
-    3: "高価格"
-  };
-
-  priceLabel.textContent = map[val];
-});
-});
